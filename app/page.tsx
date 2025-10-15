@@ -21,7 +21,8 @@ import {
   Shirt,
   Gamepad2,
   Watch,
-  Headphones
+  Headphones,
+  Sparkles
 } from 'lucide-react'
 
 // Datos de ejemplo (en producción vendrían de la API)
@@ -189,6 +190,45 @@ export default function Home() {
                 <h3 className="font-semibold mb-1">Calidad Garantizada</h3>
                 <p className="text-sm text-muted-foreground">Productos verificados</p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* AI Features */}
+        <section className="py-12 bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-primary/10">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-8">
+              <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0 mb-4">
+                <Sparkles className="mr-2 h-4 w-4" />
+                Nuevo con IA
+              </Badge>
+              <h2 className="text-3xl font-bold mb-2">Potenciado por Inteligencia Artificial</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Descubre productos personalizados con nuestra tecnología de IA avanzada. ¡Chat disponible en la burbuja flotante!
+              </p>
+            </div>
+            <div className="flex justify-center max-w-2xl mx-auto">
+              <Link href="/ai-recommendations">
+                <Card className="hover:shadow-lg transition-all cursor-pointer group border-2 hover:border-pink-500/50 w-full">
+                  <CardContent className="p-8">
+                    <div className="flex items-center justify-center gap-6">
+                      <div className="p-4 rounded-full bg-gradient-to-br from-pink-500 to-purple-500 group-hover:scale-110 transition-transform">
+                        <Sparkles className="h-12 w-12 text-white" />
+                      </div>
+                      <div className="flex-1 text-center">
+                        <h3 className="text-2xl font-bold mb-3">Recomendaciones IA</h3>
+                        <p className="text-muted-foreground mb-6 text-lg">
+                          Productos personalizados basados en tus gustos y comportamiento de compra. ¡Encuentra lo que buscas!
+                        </p>
+                        <div className="flex items-center justify-center gap-2 text-pink-500 font-semibold group-hover:gap-4 transition-all text-lg">
+                          Ver recomendaciones
+                          <ArrowRight className="h-5 w-5" />
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             </div>
           </div>
         </section>

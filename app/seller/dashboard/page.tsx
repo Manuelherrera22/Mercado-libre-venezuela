@@ -3,6 +3,7 @@
 import React from 'react'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { SellerRoute } from '@/components/SellerRoute'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -16,12 +17,26 @@ import {
   Users,
   ArrowUp,
   ArrowDown,
-  Plus
+  Plus,
+  Store,
+  Bot,
+  Brain,
+  Sparkles,
+  Activity,
+  ArrowUpRight,
+  ArrowDownRight,
+  BarChart3,
+  Target,
+  Zap,
+  CreditCard
 } from 'lucide-react'
 import { formatPrice, formatNumber } from '@/lib/utils'
 import Link from 'next/link'
+import { useAuth } from '@/contexts/AuthContext'
 
 export default function SellerDashboard() {
+  const { user } = useAuth()
+
   // Datos de ejemplo
   const stats = [
     {
@@ -116,18 +131,22 @@ export default function SellerDashboard() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <main className="flex-1 py-8">
+    <SellerRoute>
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        
+        <main className="flex-1 py-8">
         <div className="container mx-auto px-4">
           {/* Header */}
           <div className="mb-8">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-3xl font-bold mb-2">Dashboard de Vendedor</h1>
+                <h1 className="text-3xl font-bold mb-2 flex items-center gap-3">
+                  <Store className="h-8 w-8 text-primary" />
+                  Dashboard de Vendedor
+                </h1>
                 <p className="text-muted-foreground">
-                  Gestiona tus productos y ventas
+                  Bienvenido, {user?.name}. Gestiona tus productos y ventas
                 </p>
               </div>
               <Link href="/sell">
@@ -277,6 +296,136 @@ export default function SellerDashboard() {
             </div>
           </div>
 
+          {/* AI Features Section */}
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <Brain className="h-6 w-6 text-purple-500" />
+              Herramientas IA Avanzadas
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="border-purple-500/20 bg-gradient-to-br from-purple-500/5 to-pink-500/5">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Bot className="h-5 w-5 text-purple-500" />
+                    Product Research
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Descubre productos trending con análisis de IA
+                  </p>
+                  <Link href="/ai-research">
+                    <Button className="w-full">
+                      <Sparkles className="mr-2 h-4 w-4" />
+                      Analizar Mercado
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              <Card className="border-green-500/20 bg-gradient-to-br from-green-500/5 to-emerald-500/5">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <DollarSign className="h-5 w-5 text-green-500" />
+                    Dynamic Pricing
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Optimización automática de precios
+                  </p>
+                  <Link href="/pricing">
+                    <Button className="w-full">
+                      <Target className="mr-2 h-4 w-4" />
+                      Optimizar Precios
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              <Card className="border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-cyan-500/5">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <BarChart3 className="h-5 w-5 text-blue-500" />
+                    Analytics IA
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Predicciones y insights avanzados
+                  </p>
+                  <Link href="/analytics">
+                    <Button className="w-full">
+                      <Activity className="mr-2 h-4 w-4" />
+                      Ver Analytics
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Second Row */}
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="border-yellow-500/20 bg-gradient-to-br from-yellow-500/5 to-orange-500/5">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Zap className="h-5 w-5 text-yellow-500" />
+                    Order Automation
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Automatización inteligente de órdenes
+                  </p>
+                  <Link href="/automation">
+                    <Button className="w-full">
+                      <Zap className="mr-2 h-4 w-4" />
+                      Configurar Auto
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              <Card className="border-blue-500/20 bg-gradient-to-br from-blue-500/5 to-indigo-500/5">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <CreditCard className="h-5 w-5 text-blue-500" />
+                    Payment System
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Sistema de pagos automático
+                  </p>
+                  <Link href="/payments">
+                    <Button className="w-full">
+                      <CreditCard className="mr-2 h-4 w-4" />
+                      Gestionar Pagos
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+
+              <Card className="border-green-500/20 bg-gradient-to-br from-green-500/5 to-teal-500/5">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Target className="h-5 w-5 text-green-500" />
+                    Multi-Channel
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Venta en múltiples canales
+                  </p>
+                  <Button className="w-full" disabled>
+                    <Target className="mr-2 h-4 w-4" />
+                    Próximamente
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
           {/* Quick Actions */}
           <Card className="mt-8">
             <CardHeader>
@@ -284,7 +433,7 @@ export default function SellerDashboard() {
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <Link href="/sell">
+                <Link href="/seller/products/new">
                   <Button variant="outline" className="w-full">
                     <Plus className="mr-2 h-4 w-4" />
                     Nuevo Producto
@@ -302,7 +451,7 @@ export default function SellerDashboard() {
                     Mis Pedidos
                   </Button>
                 </Link>
-                <Link href="/seller/analytics">
+                <Link href="/analytics">
                   <Button variant="outline" className="w-full">
                     <TrendingUp className="mr-2 h-4 w-4" />
                     Analytics
@@ -312,10 +461,11 @@ export default function SellerDashboard() {
             </CardContent>
           </Card>
         </div>
-      </main>
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </SellerRoute>
   )
 }
 

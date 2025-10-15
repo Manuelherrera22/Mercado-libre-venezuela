@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { Search, ShoppingCart, User, Menu, X, Package, Settings, LogOut, TrendingUp } from 'lucide-react'
+import { Search, ShoppingCart, User, Menu, X, Package, Settings, LogOut, TrendingUp, Sparkles, Store, Bot, DollarSign, BarChart3, Zap, CreditCard } from 'lucide-react'
 import { useAuth } from '@/contexts/AuthContext'
 import { useCart } from '@/contexts/CartContext'
 import { NotificationCenter } from '@/components/NotificationCenter'
@@ -15,7 +15,7 @@ export function Header() {
   const [searchQuery, setSearchQuery] = useState('')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
-  const { user, logout, isAuthenticated } = useAuth()
+  const { user, logout, isAuthenticated, isSeller } = useAuth()
   const { itemCount, total } = useCart()
 
   const handleSearch = (e: React.FormEvent) => {
@@ -64,12 +64,62 @@ export function Header() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-2">
+            {/* AI Recommendations Link */}
+            <Link href="/ai-recommendations">
+              <Button variant="ghost" size="sm" className="hidden md:flex">
+                <Sparkles className="mr-2 h-4 w-4" />
+                Recomendaciones
+              </Button>
+            </Link>
+
             {/* Dropshipping Link */}
-            {isAuthenticated && (
-              <Link href="/dropshipping">
+    {isAuthenticated && isSeller && (
+      <>
+        <Link href="/dropshipping">
+          <Button variant="ghost" size="sm" className="hidden md:flex">
+            <TrendingUp className="mr-2 h-4 w-4" />
+            Dropshipping
+          </Button>
+        </Link>
+        <Link href="/ai-research">
+          <Button variant="ghost" size="sm" className="hidden md:flex">
+            <Bot className="mr-2 h-4 w-4" />
+            IA Research
+          </Button>
+        </Link>
+        <Link href="/pricing">
+          <Button variant="ghost" size="sm" className="hidden md:flex">
+            <DollarSign className="mr-2 h-4 w-4" />
+            Pricing IA
+          </Button>
+        </Link>
+        <Link href="/analytics">
+          <Button variant="ghost" size="sm" className="hidden md:flex">
+            <BarChart3 className="mr-2 h-4 w-4" />
+            Analytics
+          </Button>
+        </Link>
+        <Link href="/automation">
+          <Button variant="ghost" size="sm" className="hidden md:flex">
+            <Zap className="mr-2 h-4 w-4" />
+            Automation
+          </Button>
+        </Link>
+        <Link href="/payments">
+          <Button variant="ghost" size="sm" className="hidden md:flex">
+            <CreditCard className="mr-2 h-4 w-4" />
+            Payments
+          </Button>
+        </Link>
+      </>
+    )}
+
+            {/* Become Seller Link */}
+            {isAuthenticated && !isSeller && user?.role !== 'admin' && (
+              <Link href="/become-seller">
                 <Button variant="ghost" size="sm" className="hidden md:flex">
-                  <TrendingUp className="mr-2 h-4 w-4" />
-                  Dropshipping
+                  <Store className="mr-2 h-4 w-4" />
+                  Vender
                 </Button>
               </Link>
             )}
@@ -107,13 +157,33 @@ export function Header() {
                       <Package className="h-4 w-4" />
                       Mis Pedidos
                     </Link>
+                    {isSeller && (
+                      <Link
+                        href="/seller/dashboard"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent rounded-sm"
+                        onClick={() => setUserMenuOpen(false)}
+                      >
+                        <Store className="h-4 w-4" />
+                        Dashboard Vendedor
+                      </Link>
+                    )}
+                    {isSeller && (
+                      <Link
+                        href="/dropshipping"
+                        className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent rounded-sm"
+                        onClick={() => setUserMenuOpen(false)}
+                      >
+                        <TrendingUp className="h-4 w-4" />
+                        Dropshipping
+                      </Link>
+                    )}
                     <Link
-                      href="/dropshipping"
+                      href="/ai-recommendations"
                       className="flex items-center gap-2 px-3 py-2 text-sm hover:bg-accent rounded-sm"
                       onClick={() => setUserMenuOpen(false)}
                     >
-                      <TrendingUp className="h-4 w-4" />
-                      Dropshipping
+                      <Sparkles className="h-4 w-4" />
+                      Recomendaciones IA
                     </Link>
                     {user?.role === 'admin' && (
                       <Link
@@ -199,6 +269,14 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="border-t md:hidden animate-slideIn">
           <div className="container mx-auto px-4 py-4 space-y-2">
+            <Link
+              href="/ai-recommendations"
+              className="block px-4 py-2 hover:bg-accent rounded-md flex items-center gap-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <Sparkles className="h-4 w-4" />
+              Recomendaciones IA
+            </Link>
             <Link
               href="/categories"
               className="block px-4 py-2 hover:bg-accent rounded-md"
