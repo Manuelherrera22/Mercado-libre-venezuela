@@ -53,10 +53,28 @@ export function NotificationProvider({ children }: { children: React.ReactNode }
     setNotifications(prev => [newNotification, ...prev])
 
     // Mostrar toast
-    toast[notification.type](notification.message, {
+    const toastOptions = {
       duration: 4000,
-      position: 'top-right'
-    })
+      position: 'top-right' as const
+    }
+
+    switch (notification.type) {
+      case 'success':
+        toast.success(notification.message, toastOptions)
+        break
+      case 'error':
+        toast.error(notification.message, toastOptions)
+        break
+      case 'info':
+        toast(notification.message, toastOptions)
+        break
+      case 'warning':
+        toast(notification.message, {
+          ...toastOptions,
+          icon: '⚠️'
+        })
+        break
+    }
   }
 
   const markAsRead = (id: string) => {
