@@ -42,7 +42,7 @@ export default function RegisterSupplierPage() {
     
     // Negocio
     businessType: '',
-    categories: [],
+    categories: [] as string[],
     
     // Dropshipping
     minOrder: '',
@@ -50,7 +50,7 @@ export default function RegisterSupplierPage() {
     freeShippingThreshold: '50',
     
     // Envíos
-    shippingZones: []
+    shippingZones: [] as string[]
   })
 
   const states = [
