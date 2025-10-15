@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   title: 'MercadoLibre Venezuela - Compra y Vende',
   description: 'La plataforma de compra y venta más grande de Venezuela',
   keywords: 'mercado libre, venezuela, compra, venta, productos',
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' }
+    ],
+  },
 }
 
 export default function RootLayout({
