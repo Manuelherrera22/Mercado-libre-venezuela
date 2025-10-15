@@ -170,6 +170,167 @@ const categoriesData: Record<string, any> = {
       ram: ['8GB', '16GB', '32GB', '64GB'],
       storage: ['256GB', '512GB', '1TB', '2TB']
     }
+  },
+  '3': {
+    name: 'Hogar',
+    icon: HomeIcon,
+    color: 'text-green-500',
+    bgColor: 'bg-green-500/10',
+    description: 'Muebles, decoración y electrodomésticos',
+    products: [
+      {
+        id: '10',
+        name: 'Sofá 3 Plazas Moderno',
+        price: 599,
+        originalPrice: 699,
+        image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500',
+        rating: 4.7,
+        reviews: 156,
+        freeShipping: true,
+        badge: 'Popular'
+      },
+      {
+        id: '11',
+        name: 'Mesa de Comedor 6 Personas',
+        price: 399,
+        originalPrice: 499,
+        image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500',
+        rating: 4.6,
+        reviews: 234,
+        freeShipping: true,
+        badge: 'Destacado'
+      }
+    ],
+    subcategories: ['Muebles', 'Decoración', 'Cocina', 'Baño', 'Jardín'],
+    filters: {
+      brands: ['IKEA', 'Ashley', 'La-Z-Boy', 'Pottery Barn', 'West Elm'],
+      priceRanges: [
+        { label: 'Menos de $200', min: 0, max: 200 },
+        { label: '$200 - $500', min: 200, max: 500 },
+        { label: '$500 - $1000', min: 500, max: 1000 },
+        { label: 'Más de $1000', min: 1000, max: Infinity }
+      ]
+    }
+  },
+  '4': {
+    name: 'Ropa',
+    icon: Shirt,
+    color: 'text-pink-500',
+    bgColor: 'bg-pink-500/10',
+    description: 'Ropa, calzado y accesorios de moda',
+    products: [
+      {
+        id: '12',
+        name: 'Camisa Casual Premium',
+        price: 49,
+        originalPrice: 69,
+        image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500',
+        rating: 4.5,
+        reviews: 189,
+        freeShipping: true,
+        badge: 'Oferta'
+      }
+    ],
+    subcategories: ['Mujer', 'Hombre', 'Niños', 'Calzado', 'Accesorios'],
+    filters: {
+      brands: ['Nike', 'Adidas', 'Zara', 'H&M', 'Levi\'s'],
+      priceRanges: [
+        { label: 'Menos de $50', min: 0, max: 50 },
+        { label: '$50 - $100', min: 50, max: 100 },
+        { label: '$100 - $200', min: 100, max: 200 },
+        { label: 'Más de $200', min: 200, max: Infinity }
+      ]
+    }
+  },
+  '5': {
+    name: 'Gaming',
+    icon: Gamepad2,
+    color: 'text-red-500',
+    bgColor: 'bg-red-500/10',
+    description: 'Consolas, juegos y accesorios gaming',
+    products: [
+      {
+        id: '13',
+        name: 'PlayStation 5',
+        price: 499,
+        originalPrice: 549,
+        image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=500',
+        rating: 4.9,
+        reviews: 567,
+        freeShipping: true,
+        badge: 'Oferta'
+      }
+    ],
+    subcategories: ['Consolas', 'Juegos', 'Accesorios', 'PC Gaming', 'Merchandise'],
+    filters: {
+      brands: ['Sony', 'Microsoft', 'Nintendo', 'Razer', 'Logitech'],
+      priceRanges: [
+        { label: 'Menos de $100', min: 0, max: 100 },
+        { label: '$100 - $300', min: 100, max: 300 },
+        { label: '$300 - $500', min: 300, max: 500 },
+        { label: 'Más de $500', min: 500, max: Infinity }
+      ]
+    }
+  },
+  '6': {
+    name: 'Relojes',
+    icon: Watch,
+    color: 'text-yellow-500',
+    bgColor: 'bg-yellow-500/10',
+    description: 'Relojes inteligentes y tradicionales',
+    products: [
+      {
+        id: '14',
+        name: 'Apple Watch Series 9',
+        price: 429,
+        originalPrice: 479,
+        image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=500',
+        rating: 4.8,
+        reviews: 278,
+        freeShipping: true,
+        badge: 'Nuevo'
+      }
+    ],
+    subcategories: ['Smartwatch', 'Deportivos', 'Lujo', 'Clásicos', 'Accesorios'],
+    filters: {
+      brands: ['Apple', 'Samsung', 'Garmin', 'Rolex', 'Omega'],
+      priceRanges: [
+        { label: 'Menos de $200', min: 0, max: 200 },
+        { label: '$200 - $500', min: 200, max: 500 },
+        { label: '$500 - $1000', min: 500, max: 1000 },
+        { label: 'Más de $1000', min: 1000, max: Infinity }
+      ]
+    }
+  },
+  '7': {
+    name: 'Audio',
+    icon: Headphones,
+    color: 'text-indigo-500',
+    bgColor: 'bg-indigo-500/10',
+    description: 'Audífonos, parlantes y equipos de audio',
+    products: [
+      {
+        id: '15',
+        name: 'Sony WH-1000XM5',
+        price: 399,
+        originalPrice: 449,
+        image: 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=500',
+        rating: 4.6,
+        reviews: 312,
+        freeShipping: true,
+        badge: 'Popular'
+      }
+    ],
+    subcategories: ['Audífonos', 'Parlantes', 'Micrófonos', 'Amplificadores', 'Accesorios'],
+    filters: {
+      brands: ['Sony', 'Bose', 'JBL', 'Sennheiser', 'Audio-Technica'],
+      priceRanges: [
+        { label: 'Menos de $100', min: 0, max: 100 },
+        { label: '$100 - $300', min: 100, max: 300 },
+        { label: '$300 - $500', min: 300, max: 500 },
+        { label: 'Más de $500', min: 500, max: Infinity }
+      ]
+    }
   }
 }
 
