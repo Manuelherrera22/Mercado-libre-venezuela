@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { 
   Bitcoin, 
-  Ethereum, 
+  Coins,
   DollarSign,
   TrendingUp,
   TrendingDown,
@@ -292,7 +292,7 @@ export default function CryptoPaymentPage() {
                             'bg-green-500/10'
                           }`}>
                             {tx.crypto === 'BTC' && <Bitcoin className="h-4 w-4 text-orange-500" />}
-                            {tx.crypto === 'ETH' && <Ethereum className="h-4 w-4 text-blue-500" />}
+                            {tx.crypto === 'ETH' && <Coins className="h-4 w-4 text-blue-500" />}
                             {tx.crypto === 'USDT' && <span className="text-green-500 font-bold">₮</span>}
                           </div>
                           <div>

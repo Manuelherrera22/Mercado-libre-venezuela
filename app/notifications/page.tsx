@@ -26,7 +26,8 @@ import {
   Package,
   Zap,
   Eye,
-  EyeOff
+  EyeOff,
+  BarChart3
 } from 'lucide-react'
 
 interface Notification {
