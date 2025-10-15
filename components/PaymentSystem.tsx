@@ -339,51 +339,51 @@ export function PaymentSystem() {
 
       {/* Stats Overview */}
       {stats && (
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-muted-foreground">Volume Total</p>
-                  <p className="text-2xl font-bold">${stats.totalVolume.toLocaleString()}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Volume Total</p>
+                  <p className="text-xl sm:text-2xl font-bold">${stats.totalVolume.toLocaleString()}</p>
                 </div>
-                <DollarSign className="h-8 w-8 text-green-500" />
+                <DollarSign className="h-6 w-6 sm:h-8 sm:w-8 text-green-500 flex-shrink-0" />
               </div>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-muted-foreground">Transacciones</p>
-                  <p className="text-2xl font-bold">{stats.transactionsCount}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Transacciones</p>
+                  <p className="text-xl sm:text-2xl font-bold">{stats.transactionsCount}</p>
                 </div>
-                <Activity className="h-8 w-8 text-blue-500" />
+                <Activity className="h-6 w-6 sm:h-8 sm:w-8 text-blue-500 flex-shrink-0" />
               </div>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-muted-foreground">Comisión Promedio</p>
-                  <p className="text-2xl font-bold">{stats.averageCommission}%</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Comisión Promedio</p>
+                  <p className="text-xl sm:text-2xl font-bold">{stats.averageCommission}%</p>
                 </div>
-                <Percent className="h-8 w-8 text-purple-500" />
+                <Percent className="h-6 w-6 sm:h-8 sm:w-8 text-purple-500 flex-shrink-0" />
               </div>
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className="p-6">
+            <CardContent className="p-4 sm:p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-muted-foreground">Profit Total</p>
-                  <p className="text-2xl font-bold">${stats.totalProfit.toLocaleString()}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Profit Total</p>
+                  <p className="text-xl sm:text-2xl font-bold">${stats.totalProfit.toLocaleString()}</p>
                 </div>
-                <TrendingUp className="h-8 w-8 text-emerald-500" />
+                <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-500 flex-shrink-0" />
               </div>
             </CardContent>
           </Card>
@@ -399,7 +399,7 @@ export function PaymentSystem() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {commissionTiers.map((tier) => (
               <div 
                 key={tier.id}
@@ -440,7 +440,7 @@ export function PaymentSystem() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {paymentMethods.map((method) => (
               <div key={method.id} className="p-4 border rounded-lg">
                 <div className="flex items-center justify-between mb-3">
@@ -551,22 +551,22 @@ export function PaymentSystem() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <Button variant="outline" size="sm">
-              <Calculator className="h-4 w-4 mr-2" />
-              Calcular Comisiones
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
+            <Button variant="outline" size="sm" className="w-full justify-start">
+              <Calculator className="h-4 w-4 mr-2 flex-shrink-0" />
+              <span className="truncate">Calcular Comisiones</span>
             </Button>
-            <Button variant="outline" size="sm">
-              <Download className="h-4 w-4 mr-2" />
-              Exportar Reportes
+            <Button variant="outline" size="sm" className="w-full justify-start">
+              <Download className="h-4 w-4 mr-2 flex-shrink-0" />
+              <span className="truncate">Exportar Reportes</span>
             </Button>
-            <Button variant="outline" size="sm">
-              <Filter className="h-4 w-4 mr-2" />
-              Filtrar Transacciones
+            <Button variant="outline" size="sm" className="w-full justify-start">
+              <Filter className="h-4 w-4 mr-2 flex-shrink-0" />
+              <span className="truncate">Filtrar Transacciones</span>
             </Button>
-            <Button variant="outline" size="sm">
-              <Calendar className="h-4 w-4 mr-2" />
-              Programar Pagos
+            <Button variant="outline" size="sm" className="w-full justify-start">
+              <Calendar className="h-4 w-4 mr-2 flex-shrink-0" />
+              <span className="truncate">Programar Pagos</span>
             </Button>
           </div>
         </CardContent>
