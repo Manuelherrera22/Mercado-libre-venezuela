@@ -26,13 +26,13 @@ import {
 
 // Datos de ejemplo (en producción vendrían de la API)
 const categories = [
-  { id: 1, name: 'Celulares', icon: Smartphone, color: 'text-blue-500' },
-  { id: 2, name: 'Computadoras', icon: Laptop, color: 'text-purple-500' },
-  { id: 3, name: 'Hogar', icon: HomeIcon, color: 'text-green-500' },
-  { id: 4, name: 'Ropa', icon: Shirt, color: 'text-pink-500' },
-  { id: 5, name: 'Gaming', icon: Gamepad2, color: 'text-red-500' },
-  { id: 6, name: 'Relojes', icon: Watch, color: 'text-yellow-500' },
-  { id: 7, name: 'Audio', icon: Headphones, color: 'text-indigo-500' },
+  { id: 1, name: 'Celulares', icon: Smartphone, color: 'text-blue-500', bgColor: 'bg-blue-500/10', products: 1247 },
+  { id: 2, name: 'Computadoras', icon: Laptop, color: 'text-purple-500', bgColor: 'bg-purple-500/10', products: 856 },
+  { id: 3, name: 'Hogar', icon: HomeIcon, color: 'text-green-500', bgColor: 'bg-green-500/10', products: 2341 },
+  { id: 4, name: 'Ropa', icon: Shirt, color: 'text-pink-500', bgColor: 'bg-pink-500/10', products: 3421 },
+  { id: 5, name: 'Gaming', icon: Gamepad2, color: 'text-red-500', bgColor: 'bg-red-500/10', products: 678 },
+  { id: 6, name: 'Relojes', icon: Watch, color: 'text-yellow-500', bgColor: 'bg-yellow-500/10', products: 432 },
+  { id: 7, name: 'Audio', icon: Headphones, color: 'text-indigo-500', bgColor: 'bg-indigo-500/10', products: 987 },
 ]
 
 const featuredProducts = [
@@ -212,12 +212,13 @@ export default function Home() {
                   href={`/categories/${category.id}`}
                   className="group"
                 >
-                  <Card className="hover:border-primary/50 transition-colors cursor-pointer h-full">
+                  <Card className="hover:border-primary/50 transition-all cursor-pointer h-full hover:shadow-lg">
                     <CardContent className="p-6 flex flex-col items-center text-center">
-                      <div className={`mb-3 p-4 rounded-full bg-secondary group-hover:bg-primary/20 transition-colors`}>
+                      <div className={`mb-3 p-4 rounded-full ${category.bgColor} group-hover:scale-110 transition-transform`}>
                         <category.icon className={`h-8 w-8 ${category.color}`} />
                       </div>
-                      <p className="font-medium text-sm">{category.name}</p>
+                      <p className="font-medium text-sm mb-1">{category.name}</p>
+                      <p className="text-xs text-muted-foreground">{category.products.toLocaleString()} productos</p>
                     </CardContent>
                   </Card>
                 </Link>
