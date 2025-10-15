@@ -13,7 +13,10 @@ export const config = {
   
   // Feature flags
   features: {
-    mockAuth: process.env.NEXT_PUBLIC_MOCK_AUTH === 'true' || process.env.NODE_ENV === 'development',
+    // Enable mock auth in development OR if explicitly enabled in production
+    mockAuth: process.env.NEXT_PUBLIC_MOCK_AUTH === 'true' || 
+              process.env.NODE_ENV === 'development' ||
+              !process.env.NEXT_PUBLIC_API_URL, // Enable if no API URL is set
     enableAnalytics: process.env.NEXT_PUBLIC_ANALYTICS === 'true',
     enableDebug: process.env.NODE_ENV === 'development',
   },
