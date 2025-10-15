@@ -13,7 +13,7 @@ import {
   Truck, 
   Star,
   CheckCircle,
-  Sync,
+  RefreshCw,
   ExternalLink
 } from 'lucide-react'
 
@@ -245,7 +245,7 @@ export default function SuppliersPage() {
                           Ver Catálogo
                         </Button>
                         <Button variant="outline">
-                          <Sync className="mr-2 h-4 w-4" />
+                          <RefreshCw className="mr-2 h-4 w-4" />
                           Sincronizar
                         </Button>
                         <Button variant="outline">

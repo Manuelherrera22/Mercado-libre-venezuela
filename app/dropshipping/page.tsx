@@ -13,7 +13,7 @@ import {
   Users,
   ShoppingCart,
   Plus,
-  Sync,
+  RefreshCw,
   Filter,
   Search
 } from 'lucide-react'
@@ -267,7 +267,7 @@ export default function DropshippingPage() {
               <div className="flex justify-between items-center">
                 <h2 className="text-2xl font-bold">Mis Productos de Dropshipping</h2>
                 <Button>
-                  <Sync className="mr-2 h-4 w-4" />
+                  <RefreshCw className="mr-2 h-4 w-4" />
                   Sincronizar
                 </Button>
               </div>
@@ -356,7 +356,7 @@ export default function DropshippingPage() {
                             Ver Catálogo
                           </Button>
                           <Button variant="outline">
-                            <Sync className="mr-2 h-4 w-4" />
+                            <RefreshCw className="mr-2 h-4 w-4" />
                             Sincronizar
                           </Button>
                         </div>
